@@ -64,7 +64,7 @@ void KEY_BOARD_init(void)
     P2REN |=  BIT1;
     P2OUT |=  BIT1;
 
-	WDT_init();
+	// WDT_init();
 
 	//Input_str = (char *)malloc(sizeof(char));
 
@@ -95,8 +95,9 @@ void WDT_init(void)
  *                  所以，在WDT定时中断服务子函数中，直接调用WDT事件处理函数就可以了。
  * 范       例：无
  ******************************************************************************************************/
-#pragma vector=WDT_VECTOR
-__interrupt void WDT_ISR(void)
+//#pragma vector=WDT_VECTOR
+//__interrupt
+void WDT_ISR(void)
 {
 	//-----启用Port1事件检测函数-----
 	KEY_IODect();		//检测通过，则会调用事件处理函数
